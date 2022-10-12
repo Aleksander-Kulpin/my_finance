@@ -1,7 +1,5 @@
 # My Finance
 
-![Screen of Main Page] (/assets/images/screen2.png)
-
 A web app to buy and sell stocks using virtual curency, and track your investment portfolio. The app uses the IEX API to fetch stock price data.
 The user has access to the following features:
 
