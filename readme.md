@@ -19,7 +19,7 @@ Add money
 If you are running low on funds, you can deposit as much (fake) money as you like to buy some more stocks!
 
 History
-View transaction history including price, date and number of shares bought for any transaction you have made before. The data is saved in an SQLite databse and saved on the server so history is maintained across sessions.
+View transaction history including price, date and number of shares bought for any transaction you have made before. The data is saved in an SQLite database and saved on the server so history is maintained across sessions.
 
 Change password
 User can change their current password using this interface.
