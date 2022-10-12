@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<h2>History</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">Date and time</th>
+            <th class="text-start">Activity</th>
+            <th class="text-start">Symbol</th>
+            <th class="text-end">Historical Price</th>
+            <th class="text-end">Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in history_rows %}
+            <tr>
+                <td class="text-start">{{ row["date"] }}</td>
+                <td class="text-start">{{ row["activity"] }}</td>
+                <td class="text-start">{{ row["symbol"] }}</td>
+                <td class="text-end">{{ row["price"] }}</td>
+                <td class="text-end">{{ row["qty"] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

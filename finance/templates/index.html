@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<h2>Portfolio</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-start">Name</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">TOTAL</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in information %}
+            {% if row["qty_shares"] > 0 %}
+            <tr>
+                <td class="text-start">{{ row["symbol"] }}</td>
+                <td class="text-start">{{ row["company_name"] }}</td>
+                <td class="text-end">{{ row["qty_shares"] }}</td>
+                <td class="text-end">{{ row["current_price"] }}</td>
+                <td class="text-end">{{ row["total"] }}</td>
+                <td>
+                    <form action="/buy" method="post">
+
+                        <input autocomplete="off" autofocus id="shares" name="shares" placeholder="# shares to buy" type="number">
+                        <button class="btn btn-primary" type="submit">Buy</button>
+                        <input id="symbol" name="symbol" type="hidden" value="{{ row['symbol'] }}">
+                    </form>
+                </td>
+                <td>
+                    <form action="/sell" method="post">
+                        <input autocomplete="off" autofocus id="shares" name="shares" placeholder="# shares to sell" type="number">
+                        <button class="btn btn-primary" type="submit">Sell</button>
+                        <input id="symbol" name="symbol" type="hidden" value="{{ row['symbol'] }}">
+                    </form>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="text-end">Cash</td>
+            <td class="text-end">{{cash}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="text-end">TOTAL</td>
+            <td class="text-end">{{grand_total}}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
